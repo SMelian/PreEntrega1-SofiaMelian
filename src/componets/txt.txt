@@ -1,0 +1,77 @@
+const NavBar = (props) => {
+
+    const nombre = "Caminito"
+    return (
+        
+<header className={"header-"+nombre}>
+    <h1>{nombre}</h1> 
+    <nav className="navbar">
+        <h1>{props.nombre}</h1>
+        <a href="#">Food</a>
+        <a href="#">About us</a>
+        <a href="#">Location</a>
+    </nav>
+    </header>
+   
+    )
+    
+    }
+export default NavBar
+
+
+
+
+--------
+app
+
+//esto se exporta al archivo main.jsx
+import Header from "./componets/Header"
+import NavBar from "./componets/NavBar"
+import Footer from "./componets/footer"
+import CartWidget from "./componets/CartWidget"
+import ItemListContainer from './ItemListContainer';
+
+//export defoult funtion app () {
+function App() {
+  
+  const nombre = "sofia"
+
+  if (nombre == "sofia") {
+  return (
+  < >
+  <NavBar></NavBar>
+  <CartWidget></CartWidget>
+   <Header></Header>
+  
+   <Footer></Footer>
+  </>)
+  } else {
+}
+return(
+
+  <>
+  <h1 className={"header-"+nombre}> Estupida pone bien el nombre es horacio y no { nombre}</h1>
+  <Footer></Footer>
+  </>
+)
+
+}
+
+
+export default App // puedo hacerlo asi, primero la funcion y despues export o puedo porner todo junto
+
+
+
+
+
+el que anda en vite.config.js
+
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [react()],
+
+  
+})

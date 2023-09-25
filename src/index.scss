@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+header{
+    background-color: rgb(255, 127, 200);
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    justify-items: auto;
+  }
+   h1 {
+   max-width: 30%;
+   align-items: left;
+
+  }
+  .header-horacio { 
+    background-color: rosybrown;
+  }
+  
+  .header-sofia {
+    background-color: blueviolet;
+  }
+  
+  header nav {
+    display: flex;
+   justify-content: space-between;
+
+  }
+
+
+.cart-widget {
+    align-items: right;
+    display: flex;
+    max-width: 10%;
+   
+ 
+   }
+
+
+.footerclass
+{
+    display: flex;
+   justify-content: space-between;
+
+  }
+
