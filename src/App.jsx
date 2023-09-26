@@ -3,7 +3,6 @@ import Header from "./componets/Header"
 import NavBar from "./componets/NavBar"
 import Footer from "./componets/footer"
 import ItemListContainer from "./componets/ItemListContainer"
-import 'bootstrap/dist/css/bootstrap.min.css'; 
 //export defoult funtion app () {
 function App() {
   
@@ -16,7 +15,6 @@ function App() {
   <NavBar></NavBar>
    <Header></Header>
    <ItemListContainer greeting={customGreeting} /> 
-   <Main></Main>
    <Footer></Footer>
   </>)
   } else {
