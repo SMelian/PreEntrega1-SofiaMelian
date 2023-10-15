@@ -3,7 +3,6 @@ import Header from "./componets/Header"
 import Main from "./componets/Main"
 import NavBar from "./componets/NavBar"
 import Footer from "./componets/footer"
-import ItemDetailContainer from "./componets/itemDetailContainer"
 import { BrowserRouter } from "react-router-dom"
 //export defoult funtion app () {
 function App() {
@@ -18,7 +17,6 @@ function App() {
   <NavBar></NavBar>
    <Header></Header>
    <Main></Main>
-
    <Footer></Footer>
    </BrowserRouter>
   </>)

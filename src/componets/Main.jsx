@@ -12,7 +12,7 @@ const Main = () => {
             <Routes>
                     <Route path="/" element={<ItemDetailContainer/>} />
                     <Route path="/Carne" element={<Carne />} />
-                    <Route path="/Veggies" element={<Vegetarian />} />
+                    <Route path="/Veggies" element={<Vegetarian/>} />
                     <Route path="/GlutenFree" element={<GlutenFree/>} />
                     <Route path="/:id" element={<IdProducto/>} />
 

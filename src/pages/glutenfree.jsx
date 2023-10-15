@@ -3,9 +3,8 @@ import { getProducts } from "../utils";
 import { useState, useEffect } from "react";
 
 function GlutenFree() {
-    // Estado del State
     const [loading, setLoading] = useState(true);
-    const [productos, setProductos] = useState([]); // Use an array to store products
+    const [productos, setProductos] = useState([]);
     const params = useParams();
 
     useEffect(() => {
@@ -14,11 +13,9 @@ function GlutenFree() {
                 const resultado = await getProducts();
 
                 if (Array.isArray(resultado)) {
-                    // Filter the products based on the category
                     const filteredProducts = resultado.filter(
-                        product => product.category === params.category
-                    );
-
+                        product => product.category === "GlutenFree"
+                    );                    
                     setProductos(filteredProducts);
                 }
 
@@ -30,7 +27,7 @@ function GlutenFree() {
         }
 
         fetchData();
-    }, [params.category]); // Use params.category as a dependency to trigger the effect when the category changes
+    }, []); 
 
     if (loading) {
         return <p>Loading...</p>;
