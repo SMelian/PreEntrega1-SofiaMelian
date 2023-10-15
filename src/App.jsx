@@ -9,7 +9,7 @@ import ItemListContainer from "./componets/ItemListContainer"
 function App() {
   
   const nombre = "sofia"
-  const customGreeting = "Es la comida mejor del mundo"
+  const customGreeting = "Es la mejor planner del mundo"
 
   if (nombre == "sofia") {
   return (
