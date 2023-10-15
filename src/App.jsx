@@ -2,8 +2,7 @@
 import Header from "./componets/Header"
 import NavBar from "./componets/NavBar"
 import Footer from "./componets/footer"
-import ItemListContainer from "./componets/ItemListContainer"
-
+import ItemDetailContainer from "./componets/itemDetailContainer"
 
 //export defoult funtion app () {
 function App() {
@@ -16,7 +15,7 @@ function App() {
   < >
   <NavBar></NavBar>
    <Header></Header>
-   <ItemListContainer greeting={customGreeting} /> 
+   <ItemDetailContainer/>
    <Footer></Footer>
   </>)
   } else {

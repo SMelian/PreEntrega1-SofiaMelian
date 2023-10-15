@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 header{
-    background-color: rgb(255, 127, 200);
+    background-color: pink;
     height: 100%;
     display: flex;
     justify-content: space-around;
@@ -42,6 +42,32 @@ header{
 {
     display: flex;
    justify-content: space-between;
-
+   
   }
 
+.card {
+  @apply p-2 shadow-md space-y-8 rounded-sm hover:scale-105 transition-all;
+
+  &__title {
+      @apply text-xl font-bold overflow-hidden whitespace-nowrap overflow-ellipsis;
+    background-color: pink
+    }
+
+  &__image {
+      @apply h-[150px] object-contain w-full;
+  }
+ 
+
+}
+
+.item-list-container {
+  @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-8;
+margin: 20px;
+
+
+}
+
+.btnCard{
+
+background-color:pink;
+}
