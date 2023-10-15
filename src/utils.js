@@ -1,7 +1,7 @@
 export function getProducts (){
-    console.log("GET PRODUCTS BITCH")
+    console.log("GET PRODUCTS")
  
-    return fetch('https://fakestoreapi.com/products')
+    return fetch('https://652bc16bd0d1df5273eeabf8.mockapi.io/empanadaslist')
 
     .then((respuesta)=>{
     console.log(respuesta)

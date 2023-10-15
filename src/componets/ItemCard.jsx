@@ -4,8 +4,8 @@ function Presentacional(props) {
         {props.productos.map((item) => {
           return (
             <article className="card">
-              <h2 className="card__title">{item.title} - ${item.price}</h2>
-              <img className="card__image" src={item.image} alt={item.title} />
+              <h2 className="card__title">{item.flavor} - ${item.price}</h2>
+              <img className="card__image" src={item.image} alt={item.flavor} />
               <button className="btn">ver mas</button>
             </article>
           )

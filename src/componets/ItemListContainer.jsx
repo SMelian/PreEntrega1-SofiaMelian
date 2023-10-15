@@ -6,8 +6,9 @@ function ItemListContainer(props) {
          
         return (
           <article className="card">
-          <h2 className="card__title">{item.title} - ${item.price}</h2>
-          <img className="card__image" src={item.image} alt={item.title} />
+          <h2 className="card__title">{item.flavor}</h2>
+          <img className="card__image" src={item.picture} alt={item.title} />
+          <p>${item.price}</p>
           <button className="btnCard">ver mas</button>
         </article>
         )
