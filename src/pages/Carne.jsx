@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { getProducts } from "../utils";
 import { useState, useEffect } from "react";
 
-function Carne() {
+function Meat() {
     const [loading, setLoading] = useState(true);
     const [productos, setProductos] = useState([]);
     const params = useParams();
@@ -51,4 +51,4 @@ function Carne() {
     );
 }
 
-export default Carne;
+export default Meat;
