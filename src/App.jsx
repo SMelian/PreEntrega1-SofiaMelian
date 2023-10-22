@@ -1,8 +1,8 @@
 //esto se exporta al archivo main.jsx
-import Header from "./componets/Header"
-import Main from "./componets/Main"
-import NavBar from "./componets/NavBar"
-import Footer from "./componets/footer"
+import Header from "./components/Header"
+import Main from "./components/Main"
+import NavBar from "./components/NavBar"
+import Footer from "./components/footer"
 import { BrowserRouter } from "react-router-dom"
 //export defoult funtion app () {
 function App() {
@@ -15,8 +15,8 @@ function App() {
   < >
  <BrowserRouter>
   <NavBar></NavBar>
-   <Header></Header>
-   <Main></Main>
+   <Header/>
+   <Main/>
    <Footer></Footer>
    </BrowserRouter>
   </>)

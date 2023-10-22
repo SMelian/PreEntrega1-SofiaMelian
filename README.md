@@ -1,6 +1,7 @@
-# React + Vite
+# Segunda Entrega - Melian
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Hola, este es el nuevo repo por si las dudas. Yo entiendo 
+
 
 Currently, two official plugins are available:
 
