@@ -1,9 +1,8 @@
 import { Route, Routes } from "react-router-dom"
-import  ItemDetailContainer from "./ItemDetailContainer"
-import Carne from "../pages/Carne"
-import Vegetarian from "../pages/Vegetarianas"
+import  ItemDetailContainer from "../pages/ItemDetailContainer"
 import IdProducto from "../pages/IdProducto"
-import GlutenFree from "../pages/glutenfree"
+import ProductListContainer from "../pages/ProductListContainer"
+import Carrito from "../pages/Carrito"
 
 const Main = () => {
  
@@ -11,11 +10,11 @@ const Main = () => {
         <main>
             <Routes>
                     <Route path="/" element={<ItemDetailContainer/>} />
-                    <Route path="/Meat" element={<Carne />} />
-                    <Route path="/Vegetarian" element={<Vegetarian/>} />
-                    <Route path="/GlutenFree" element={<GlutenFree/>} />
-                    <Route path="/:id" element={<IdProducto/>} />
-
+                    <Route path="/:category" element={<ProductListContainer/>} />
+                    <Route path="/:category" element={<ProductListContainer/>} />
+                    <Route path="/:category" element={<ProductListContainer/>} />
+                    <Route path="/detalle/:id" element={<IdProducto />} /> 
+                    <Route path="/carrito" element={<Carrito/>} /> 
             </Routes>
         </main>
     )

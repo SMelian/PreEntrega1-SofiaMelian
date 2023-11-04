@@ -1,8 +1,9 @@
 import { useParams } from "react-router-dom";
 import { getProducts } from "../utils";
 import { useState, useEffect } from "react";
+import ItemDetail from "../components/ItemDetail";
 
-function Meat() {
+function ProductListContainer() {
     const [loading, setLoading] = useState(true);
     const [productos, setProductos] = useState([]);
     const params = useParams();
@@ -13,8 +14,9 @@ function Meat() {
                 const resultado = await getProducts();
 
                 if (Array.isArray(resultado)) {
+                    const category = params.category; // Get the category parameter from the URL
                     const filteredProducts = resultado.filter(
-                        product => product.category === "Meat"
+                        product => product.category === category
                     );                    
                     setProductos(filteredProducts);
                 }
@@ -27,7 +29,7 @@ function Meat() {
         }
 
         fetchData();
-    }, []); 
+    }, [params.category]); // Add params.category as a dependency to trigger the effect when the category changes
 
     if (loading) {
         return <p>Loading...</p>;
@@ -38,17 +40,16 @@ function Meat() {
     }
 
     return (
-        <div>
-            {productos.map(producto => (
-                <article key={producto.id} className="card">
-                    <h2 className="card__title">{producto.flavor}</h2>
-                    <img className="card__image" src={producto.picture} alt={producto.flavor} />
-                    <p>${producto.price}</p>
-                    <button className="btnCard">ver mas</button>
-                </article>
+        <div className="item-list-container">
+            {productos.map((producto) => (
+                <ItemDetail key={producto.id} producto={producto} />
             ))}
         </div>
     );
 }
 
-export default Meat;
+export default ProductListContainer;
+
+
+
+

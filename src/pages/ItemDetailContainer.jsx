@@ -2,7 +2,8 @@
 //getProducts()
 
 import { useState , useEffect } from "react";
-import ItemListContainer from "./ItemListContainer";
+//import ItemListContainer from "./ItemListContainer";
+import ItemDetail from "../components/ItemDetail";
 import { getProducts } from "../utils"
 
 
@@ -24,8 +25,11 @@ function itemDetailContainer() {
 
  
   return (
-    <ItemListContainer state={ productos }/>
-  )
+    <div>
+    {productos.map((producto) => (
+      <ItemDetail key={producto.id} producto={producto} />
+    ))}
+  </div>  )
   
 }
 
