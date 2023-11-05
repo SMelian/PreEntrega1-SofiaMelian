@@ -16,8 +16,7 @@ function ItemDetail(props) {
   
 
   const handle = (cantidadSeleccionada) => {
-   SetCantidadSeleccionada(cantidadSeleccionada);
-  console.log ("Nueva seteada", cantidadSeleccionada)
+   SetCantidadSeleccionada(cantidadSeleccionada)
   };
 
   const handleRedirect = (producto) => {
@@ -57,8 +56,8 @@ const handleClick1 = () => {
           {showCounter && <ItemCount inicial={1} handle={setCantidadSeleccionada} />}
           {showAgregar && (
             <button onClick={handleClick1}>Agregar</button>
-          )}
-        </article>
+          )}            
+      </article>
       ) : (
         <p>Product not found.</p>
       )}

@@ -19,7 +19,6 @@ function ItemCount(props) {
     }
 
     const handleConfirmar = () => {
-        console.log ("se confirma cantidad")
         props.onAdd(contador)
     }
 
