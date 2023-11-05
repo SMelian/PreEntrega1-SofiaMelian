@@ -7,7 +7,7 @@ import ItemDetail from "../components/ItemDetail";
 function IdProducto() {
     const [loading, setLoading] = useState(true);
     const [producto, setProducto] = useState(null);
-    const { id } = useParams(); // Get the 'id' parameter from the URL
+    const { id } = useParams(); 
 
     useEffect(() => {
         const fetchData = async () => {
@@ -26,7 +26,6 @@ function IdProducto() {
 
                     setLoading(false);
                 } catch (err) {
-                    console.error("An error occurred while fetching data:", err);
                     setLoading(false);
                 }
             } else {

@@ -6,8 +6,9 @@ import { contexto } from "../providers/CustomProvider";
 
 function ItemDetail(props) {
 
-  const valorDelContexto = useContext (contexto)
   const navigate = useNavigate();
+  const valorDelContexto = useContext (contexto)
+  
   const [cantidadSeleccionada, setCantidadSeleccionada] = useState(1);
   const [showCounter, setShowCounter] = useState(false);
   const [showVerMasButton, setShowVerMasButton] = useState(true);
@@ -15,8 +16,8 @@ function ItemDetail(props) {
   
 
   const handle = (cantidadSeleccionada) => {
-    setCantidadSeleccionada(cantidadSeleccionada);
-    console.log ("Nueva seteada", cantidadSeleccionada)
+   SetCantidadSeleccionada(cantidadSeleccionada);
+  console.log ("Nueva seteada", cantidadSeleccionada)
   };
 
   const handleRedirect = (producto) => {
@@ -33,7 +34,6 @@ function ItemDetail(props) {
 
 
 const handleClick1 = () => {
-    console.log ("worked");
    valorDelContexto.handleIncrementTotal(1);
    setShowCounter(true); 
    setShowVerMasButton(false); 
@@ -49,13 +49,14 @@ const handleClick1 = () => {
           <h2 className="card__title">{props.producto.flavor}</h2>
           <img className="card__image" src={props.producto.picture} alt={props.producto.title} />
           <p>${props.producto.price}</p>
-          {(<button onClick={() => handleVerMas(props.producto)} className="btn">
+          {showVerMasButton && (
+            <button onClick={() => handleVerMas(props.producto)} className="btn">
               Ver mas
             </button>
           )}
-          {showCounter && <ItemCount inicial={1} onAdd={handle} />}
+          {showCounter && <ItemCount inicial={1} handle={setCantidadSeleccionada} />}
           {showAgregar && (
-            <button onClick={handleClick1}> Agregar </button>
+            <button onClick={handleClick1}>Agregar</button>
           )}
         </article>
       ) : (
