@@ -1,57 +1,53 @@
 import { useParams } from "react-router-dom";
-import { getProducts } from "../utils";
 import { useState, useEffect } from "react";
-import ItemDetail from "../components/Item";
+import { app } from "../firebaseconfig";
+import { getFirestore, collection, doc, getDoc } from "firebase/firestore";
+import ItemDetail from "../components/ItemDetail";
 
 function IdProducto() {
-    // Estado del State
     const [loading, setLoading] = useState(true);
-    const [producto, setProducto] = useState(null); // Use null to represent no product initially
-    const params = useParams();
-    const { id } = params;
-
-
-    console.log('Product ID from URL:', params.id);
-    console.log('Fetched Product Data:', producto);
+    const [producto, setProducto] = useState(null);
+    const { id } = useParams(); // Get the 'id' parameter from the URL
 
     useEffect(() => {
-        async function fetchData() {
-            try {
-                const resultado = await getProducts();
+        const fetchData = async () => {
+            if (id) {
+                const db = getFirestore(app);
+                const productoDocRef = doc(db, "productos", id);
 
-                if (Array.isArray(resultado)) {
-                    const foundProduct = resultado.find(
-                        product => product.id === parseInt(params.id)
-                    );
+                try {
+                    const docSnapshot = await getDoc(productoDocRef);
 
-                    if (foundProduct) {
-                        setProducto(foundProduct);
+                    if (docSnapshot.exists()) {
+                        setProducto(docSnapshot.data());
+                    } else {
+                        setProducto(null);
                     }
-                }
 
-                setLoading(false);
-            } catch (error) {
-                console.error("An error occurred while fetching data:", error);
+                    setLoading(false);
+                } catch (err) {
+                    console.error("An error occurred while fetching data:", err);
+                    setLoading(false);
+                }
+            } else {
                 setLoading(false);
             }
-        }
+        };
 
         fetchData();
-    }, [params.id]); // Add params.id as a dependency to trigger the effect when the ID changes
+    }, [id]);
 
     if (loading) {
         return <p>Loading...</p>;
     }
 
     if (!producto) {
-        return <p>Product not found.</p>;
+        return <p>No product found with this ID.</p>;
     }
-// In the parent component
-console.log('props.producto in parent component:', producto);
 
     return (
         <div className="item-list-container">
-             <ItemDetail producto={producto} /> 
+            <ItemDetail producto={producto} />
         </div>
     );
 }
