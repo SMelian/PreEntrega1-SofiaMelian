@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Counter from './Counter';
+import ItemCount from './ItemCount';
 import { useContext } from "react";
 import { contexto } from "../providers/CustomProvider";
 
@@ -43,7 +43,7 @@ const handleClick1 = () => {
 };
 
   return (
-    <div className="item-list-container">
+    <div>
       {props.producto ? (
         <article key={props.producto.id} className="card">
           <h2 className="card__title">{props.producto.flavor}</h2>
@@ -53,7 +53,7 @@ const handleClick1 = () => {
               Ver mas
             </button>
           )}
-          {showCounter && <Counter inicial={1} handle={handle} />}
+          {showCounter && <ItemCount inicial={1} onAdd={handle} />}
           {showAgregar && (
             <button onClick={handleClick1}> Agregar </button>
           )}

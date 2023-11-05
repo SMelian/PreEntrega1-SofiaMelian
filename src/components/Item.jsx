@@ -1,4 +1,4 @@
-function ItemListContainer(props) {
+function Item(props) {
    console.log (props.state)
   return (
     <div className="item-list-container">
@@ -17,5 +17,5 @@ function ItemListContainer(props) {
   );
 }
 
-export default ItemListContainer;
+export default Item;
 

@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom"
 import  ItemDetailContainer from "../pages/ItemDetailContainer"
 import IdProducto from "../pages/IdProducto"
-import ProductListContainer from "../pages/ProductListContainer"
-import Carrito from "../pages/Carrito"
+import ProductListContainer from "../pages/ItemListContainer"
+import Carrito from "../pages/Cartprovider"
 
 const Main = () => {
  

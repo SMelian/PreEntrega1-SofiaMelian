@@ -4,7 +4,7 @@ import { app } from "../firebaseconfig";
 import { getFirestore, collection, getDocs, query, where } from "firebase/firestore";
 import ItemDetail from "../components/ItemDetail";
 
-function ProductListContainer() {
+function ItemListContainer() {
     const [loading, setLoading] = useState(true);
     const [productos, setProductos] = useState([]);
     const { category } = useParams(); 
@@ -55,7 +55,7 @@ function ProductListContainer() {
     );
     }
 
-export default ProductListContainer;
+export default ItemListContainer;
 
 
 

@@ -1,6 +1,6 @@
 //esto se exporta al archivo main.jsx
 import Header from "./components/Header"
-import Main from "./components/Main"
+import Main from "./components/BrowserRouter"
 import NavBar from "./components/NavBar"
 import Footer from "./components/footer"
 import { BrowserRouter } from "react-router-dom"

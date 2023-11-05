@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-function Counter(props) {
+function ItemCount(props) {
 
     const [contador,setContador] = useState(props.inicial)
     
@@ -20,7 +20,7 @@ function Counter(props) {
 
     const handleConfirmar = () => {
         console.log ("se confirma cantidad")
-        props.handle(contador)
+        props.onAdd(contador)
     }
 
     return (
@@ -35,4 +35,4 @@ function Counter(props) {
     )
 }
 
-export default Counter
+export default ItemCount

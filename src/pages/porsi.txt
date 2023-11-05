@@ -1,3 +1,7 @@
+CAMINO:
+https://docs.google.com/presentation/d/1GPDKuHrjKA0FUPN7JZOuO61KR9hHgmMejRmNfZt_X7o/edit#slide=id.g24511af8c4e_0_3427
+
+
 import { useParams } from "react-router-dom";
 import { getProducts } from "../utils";
 import { useState, useEffect } from "react";
@@ -69,3 +73,7 @@ function ProductListContainer() {
 }
 
 export default ProductListContainer;
+
+
+
+

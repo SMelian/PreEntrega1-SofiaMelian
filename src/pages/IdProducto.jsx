@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { getProducts } from "../utils";
 import { useState, useEffect } from "react";
-import ItemDetail from "../components/ItemDetail";
+import ItemDetail from "../components/Item";
 
 function IdProducto() {
     // Estado del State
