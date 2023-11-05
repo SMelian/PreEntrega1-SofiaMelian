@@ -1,35 +1,42 @@
 import { useParams } from "react-router-dom";
-import { getProducts } from "../utils";
 import { useState, useEffect } from "react";
+import { app } from "../firebaseconfig";
+import { getFirestore, collection, getDocs, query, where } from "firebase/firestore";
 import ItemDetail from "../components/ItemDetail";
 
 function ProductListContainer() {
     const [loading, setLoading] = useState(true);
     const [productos, setProductos] = useState([]);
-    const params = useParams();
+    const { category } = useParams(); 
 
     useEffect(() => {
-        async function fetchData() {
+        const fetchData = async () => {
+            const db = getFirestore(app);
+            const productosCollection = collection(db, "productos");
+            let filtro = productosCollection; 
+            if (category) {
+                
+                filtro = query(productosCollection, where("category", "==", category));
+            }
+
             try {
-                const resultado = await getProducts();
-
-                if (Array.isArray(resultado)) {
-                    const category = params.category; // Get the category parameter from the URL
-                    const filteredProducts = resultado.filter(
-                        product => product.category === category
-                    );                    
-                    setProductos(filteredProducts);
-                }
-
+                const consulta = await getDocs(filtro);
+                const productosData = consulta.docs.map((doc) => {
+                    const id = doc.id;
+                    const data = doc.data();
+                    data.id = id;
+                    return data;
+                });
+                setProductos(productosData);
                 setLoading(false);
-            } catch (error) {
-                console.error("An error occurred while fetching data:", error);
+            } catch (err) {
+                console.error("An error occurred while fetching data:", err);
                 setLoading(false);
             }
-        }
+        };
 
         fetchData();
-    }, [params.category]); // Add params.category as a dependency to trigger the effect when the category changes
+    }, [category]); 
 
     if (loading) {
         return <p>Loading...</p>;
@@ -46,9 +53,10 @@ function ProductListContainer() {
             ))}
         </div>
     );
-}
+    }
 
 export default ProductListContainer;
+
 
 
 

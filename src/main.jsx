@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx' //este ./ significa que esta trayedo algo de esta ruta. a diferencia de las 2 lineas de arriva, que vienen de 2 librerias que vite instalo
 import './index.scss' // se carga una hoja de estilo de css
 
+
 ReactDOM.createRoot(document.getElementById('root')).render( // esto refiere a que en el index de html despues se exporta desde root.
   <React.StrictMode>
     <App />

@@ -1,0 +1,71 @@
+import { useParams } from "react-router-dom";
+import { getProducts } from "../utils";
+import { useState, useEffect } from "react";
+import ItemDetail from "../components/ItemDetail";
+import { app } from "../firebaseconfig"
+import { getFirestore, collection, getDocs } from "firebase/firestore"
+
+const db = getFirestore (app);
+const productosCollection = collection (db, "productos");
+const consulta = getDocs(productosCollection);
+
+consulta
+.then ((resultado) =>  {
+    const productos = resultado.docs.map (doc => {
+        const id = doc.id
+        const data = doc.data()
+        data.id=id
+        return data
+      });
+      console.log (productos)
+ }) .catch ((err)=> {
+    console.error("An error occurred while fetching data:", err);
+})
+
+
+function ProductListContainer() {
+    const [loading, setLoading] = useState(true);
+    const [productos, setProductos] = useState([]);
+    const params = useParams();
+
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                const resultado = await getProducts();
+
+                if (Array.isArray(resultado)) {
+                    const category = params.category; // Get the category parameter from the URL
+                    const filteredProducts = resultado.filter(
+                        product => product.category === category
+                    );                    
+                    setProductos(filteredProducts);
+                }
+
+                setLoading(false);
+            } catch (error) {
+                console.error("An error occurred while fetching data:", error);
+                setLoading(false);
+            }
+        }
+
+        fetchData();
+    }, [params.category]); // Add params.category as a dependency to trigger the effect when the category changes
+
+    if (loading) {
+        return <p>Loading...</p>;
+    }
+
+    if (productos.length === 0) {
+        return <p>No products found in this category.</p>;
+    }
+
+    return (
+        <div className="item-list-container">
+            {productos.map((producto) => (
+                <ItemDetail key={producto.id} producto={producto} />
+            ))}
+        </div>
+    );
+}
+
+export default ProductListContainer;
