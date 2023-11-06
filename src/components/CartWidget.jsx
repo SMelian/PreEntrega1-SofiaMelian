@@ -3,7 +3,7 @@ const CartWidget = () => {
 
     return (
     <div className="cart-widget">
-        <a href="#">
+        <a href="./Carrito">
         <img src="../../img/anadir-al-carrito.png" alt="imagen de bolsa" /> </a>
     </div>
     
