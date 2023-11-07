@@ -6,6 +6,8 @@ function PurchaseForm() {
   const [userName, setUserName] = useState('');
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const name = nameInputRef.current.value;
@@ -14,8 +16,6 @@ function PurchaseForm() {
     setShowSuccessMessage(true);
   };
 
-  const returnToMainMenu = () => {
-  };
   return (
     <div>
       {showForm && (
@@ -38,8 +38,8 @@ function PurchaseForm() {
 
       {showSuccessMessage && (
         <div>
-          <h1>Success purchase!</h1>
-          <button onClick={returnToMainMenu}>Main Menu</button>
+          <h1>Tu compra fue exitosa!</h1>  <br />
+          <a href="/">Volver al Menu principal</a>
         </div>
       )}
     </div>

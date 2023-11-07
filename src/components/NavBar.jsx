@@ -22,6 +22,8 @@ const NavBar = (props) => {
         <NavLink to="/Meat">Carne</NavLink>
         <NavLink to="/GlutenFree">Gluten Free</NavLink>
         <NavLink to="/Carrito">Carrito</NavLink>
+  
+
         {valorDelContexto.cantidadTotal}
         { /*  <a href="#">Food</a> */}
         { /*  <a href="#">About us</a>*/}

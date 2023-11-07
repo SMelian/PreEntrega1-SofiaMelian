@@ -21,6 +21,9 @@ function ItemDetail(props) {
 
   const handleRedirect = (producto) => {
     navigate(`/detalle/${producto.id}`);
+    setShowCounter(true); 
+    setShowVerMasButton(false); 
+    setAgregar(true);
   };
 
   const handleVerMas = (producto) => {

@@ -43,7 +43,7 @@ function ItemListContainer() {
     }
 
     if (productos.length === 0) {
-        return <p>No products found in this category.</p>;
+        return <p>Los productos no fueron encontrados en esta categoria</p>;
     }
 
     return (
